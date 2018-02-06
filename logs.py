@@ -21,7 +21,7 @@ def create_views(query):
     db.commit()
     db.close()
 
-    
+
 # 1) What are the 3 most popular articles of all time?
 question1 = "\nWhat are the 3 most popular articles of all time?\n"
 query1 = """
