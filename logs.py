@@ -16,6 +16,17 @@ def try_query(query):
     except:
         print("There was an error completing the query")
 
+
+def create_views(query):
+    try:
+        db = psycopg2.connect(database=DBNAME)
+        c = db.cursor()
+        c.execute(query)
+        db.commit()
+        db.close()
+    except:
+        print("There was an error creating the " + str(query) + " view")
+
 # 1) What are the 3 most popular articles of all time?
 question1 = "\nWhat are the 3 most popular articles of all time?\n"
 query1 = """
@@ -44,6 +55,36 @@ query3 = """
     where (num * 1.0 / views) > .01;
     """
 
+# Queries to create views
+full_details = """
+    create or replace view full_details as
+    select articles.title, articles.slug, authors.name, authors.id
+    from articles join authors
+    on articles.author = authors.id;
+    """
+
+errors = """
+    create or replace view errors as
+    select date(time), count(status) as num
+    from log
+    where status like '%404%'
+    group by date(time);
+    """
+
+daily_views = """
+    create or replace view daily_views as
+    select date(time), count(status) as views
+    from log
+    group by date(time);
+    """
+
+errorlog = """
+    create or replace view errorlog as
+    select errors.date, errors.num, daily_views.views
+    from errors join daily_views
+    on errors.date = daily_views.date;
+    """
+
 
 # Execute Queries for each question
 def get_results_1(query):
@@ -66,6 +107,9 @@ def get_results_3(query):
 
 # Print all Results from queries above
 if __name__ == '__main__':
+    create_views(full_details)
+    create_views(errorlog)
+    create_views(daily_views)
     print question1
     get_results_1(query1)
     print question2
