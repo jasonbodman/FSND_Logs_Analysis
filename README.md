@@ -20,5 +20,6 @@
 <h5>Program Notes</h5>
 <b>Views used:</b>
 <li><code>full_details</code>: combined basic details from <code>articles </code> and<code>authors</code> tables.</li>
-<li><code>errorlog</code>: counted the number of <code>404 NOT FOUND</code> statuses returned each day, grouped by date</li>
+<li><code>errors</code>: counted the number of <code>404 NOT FOUND</code> statuses returned each day, grouped by date</li>
 <li><code>daily_views</code>: counted the number of HTTP requests each day, grouped by date.</li>
+<li><code>errorlog</code>: combined <code>errors</code> and <code>daily_views</code> views to display the number of error codes and total number of http requests each day, grouped by date.
