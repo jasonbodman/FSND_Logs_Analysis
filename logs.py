@@ -1,9 +1,10 @@
 import psycopg2
 
-#COMMENT
+# Define Database name
 DBNAME = "news"
 
-#COMMENT
+
+# Create query function
 def try_query(query):
     try:
         db = psycopg2.connect(database=DBNAME)
@@ -43,23 +44,27 @@ query3 = """
     where (num * 1.0 / views) > .01;
     """
 
+
 # Execute Queries for each question
 def get_results_1(query):
     results = try_query(query)
     for e in results:
         print ('\t' + str(e[0]) + ' --> ' + str(e[1]) + ' views')
 
+
 def get_results_2(query):
     results = try_query(query)
     for e in results:
         print ('\t' + str(e[0]) + ' --> ' + str(e[1]) + ' views')
 
+
 def get_results_3(query):
     results = try_query(query)
     for e in results:
         print ('\t' + str(e[0]) + ' --> ' + str(e[1]) + '%')
-        
-#Print all Results from queries above
+
+
+# Print all Results from queries above
 if __name__ == '__main__':
     print question1
     get_results_1(query1)
@@ -68,4 +73,3 @@ if __name__ == '__main__':
     print question3
     get_results_3(query3)
     print('\nSuccess!\n')
-
