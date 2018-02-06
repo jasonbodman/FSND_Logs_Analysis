@@ -12,8 +12,10 @@
 <b>Install</b>
 <ul>1) Install <a href="https://www.virtualbox.org/">VirtualBox</a> and <a href="https://www.vagrantup.com/">Vagrant</a>.</ul>
 <ul>2) Download or clone this repository.</ul>
-<ul>3) Open Terminal/Command Prompt and navigate to the downloaded repository</ul>
-<ul>4) Run <code>python logs.py</code></ul>
+<ul>3) Download <a href="https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip">newdata.sql</a> file from Udacity.</ul>
+<ul>4) Move newsdata.sql within downloaded or cloned repository folder on local machine.</ul>
+<ul>5) Open Terminal/Command Prompt and navigate to the downloaded repository</ul>
+<ul>6) Run <code>python logs.py</code></ul>
 
 <h5>Program Notes</h5>
 <b>Views used:</b>
