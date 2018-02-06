@@ -10,7 +10,7 @@
 
 <h5>Instructions to Install and Run</h5>
 <b>Install</b>
-<ul>1) Install <a href="https://www.virtualbox.org/">VirtualBox</a> and <a href="https://www.vagrantup.com/>Vagrant</a>.</ul>
+<ul>1) Install <a href="https://www.virtualbox.org/">VirtualBox</a> and <a href="https://www.vagrantup.com/">Vagrant</a>.</ul>
 <ul>2) Download or clone this repository.</ul>
 <ul>3) Open Terminal/Command Prompt and navigate to the downloaded repository</ul>
 <ul>4) Run <code>python logs.py</code></ul>
