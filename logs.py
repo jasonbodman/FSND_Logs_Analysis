@@ -6,27 +6,22 @@ DBNAME = "news"
 
 # Create query function
 def try_query(query):
-    try:
-        db = psycopg2.connect(database=DBNAME)
-        c = db.cursor()
-        c.execute(query)
-        return c.fetchall()
-        db.commit()
-        db.close()
-    except:
-        print("There was an error completing the query")
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+    c.execute(query)
+    return c.fetchall()
+    db.commit()
+    db.close()
 
 
 def create_views(query):
-    try:
-        db = psycopg2.connect(database=DBNAME)
-        c = db.cursor()
-        c.execute(query)
-        db.commit()
-        db.close()
-    except:
-        print("There was an error creating the " + str(query) + " view")
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+    c.execute(query)
+    db.commit()
+    db.close()
 
+    
 # 1) What are the 3 most popular articles of all time?
 question1 = "\nWhat are the 3 most popular articles of all time?\n"
 query1 = """
@@ -90,19 +85,19 @@ errorlog = """
 def get_results_1(query):
     results = try_query(query)
     for e in results:
-        print ('\t' + str(e[0]) + ' --> ' + str(e[1]) + ' views')
+        print('\t' + str(e[0]) + ' --> ' + str(e[1]) + ' views')
 
 
 def get_results_2(query):
     results = try_query(query)
     for e in results:
-        print ('\t' + str(e[0]) + ' --> ' + str(e[1]) + ' views')
+        print('\t' + str(e[0]) + ' --> ' + str(e[1]) + ' views')
 
 
 def get_results_3(query):
     results = try_query(query)
     for e in results:
-        print ('\t' + str(e[0]) + ' --> ' + str(e[1]) + '%')
+        print('\t' + str(e[0]) + ' --> ' + str(e[1]) + '%')
 
 
 # Print all Results from queries above
